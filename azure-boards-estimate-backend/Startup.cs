@@ -32,7 +32,7 @@ namespace Estimate
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
             services.AddMvc(options => { options.EnableEndpointRouting = false; }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -58,6 +58,7 @@ namespace Estimate
             app.UseDefaultFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseRouting();
             app.UseCookiePolicy();
 
             app.UseCors();
